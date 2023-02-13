@@ -1,0 +1,198 @@
+.grid-container {
+    display: grid;
+    background-color: #14171a;
+    border: 3px solid #fff;
+    border-radius: 3px;
+
+
+}
+
+.grid-container--fill {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.grid-container--fit {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+video {
+  /* override other styles to make responsive */
+  width: 100%    !important;
+  height: auto   !important;
+  border-radius: 3px !important;
+}
+
+.grid-element {
+  height: 50% !important;
+  padding: 5px;
+  color: #fff;
+
+}
+
+header {
+  position: relative;
+  height: 75vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+  background-color: #121b2f;
+  opacity: .5;
+}
+
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 1;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: absolute;
+  z-index: 2;
+}
+/*** T H E - M A G I C - O F - O B J E C T - F I T ***/
+/*****************************************************/
+
+.video-container {
+  height: 75vh;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 3px;
+  top: 50%;
+  left: 50%;
+
+  @media(min-width: 600px !important) {
+  height: 100vh;
+  }
+}
+
+
+video {
+  object-fit: cover; // Set the magic
+  position: absolute;
+  border: 1px solid #000033;
+  background:linear-gradient(to right,rgba(0, 0, 51, 0.25),rgba(0, 25, 51, 0.45)) important;
+
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+#video-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+        }
+
+material-icons {
+    font-size: 66px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-top: 5;
+    padding: 0;
+    margin-right: 0px;
+    position: relative;
+}
+
+
+}
+
+
+
+
+
+
+
+/*** A E S T H E T I C S ***/
+/***************************/
+.video-container:before {
+  content:"";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  z-index:1;
+  background:linear-gradient(to right,rgba(0, 0, 51, 0.75),rgba(0, 25, 51, 0.5));
+}
+
+
+.video-container:after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(blue, .5);
+  z-index: -1;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+  margin: 0 0 1rem;
+  padding: 0;
+  line-height: 1;
+  font-family: Futura, Helvetica, sans-serif;
+  font-size: 5vw;
+  @media (max-width: 400px) {
+    font-size: 18px;
+  }
+  @media (min-width: 1200px) {
+    font-size: 75px;
+  }
+}
+
+
+
+.support {
+  position: absolute;
+  bottom: 80px;
+  right: 20px;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-align: right;
+  position: relative;
+  z-index: -2;
+  a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    &:before {
+      display: block;
+      position: absolute;
+      content: '';
+      bottom: -2px;
+      width: 0;
+      height: 1px;
+      background-color: rgba(white, .3);
+      transition: .3s;
+    }
+    &:hover:before {
+      width: 100%;
+    }
+  }
+}
+
+
+
+
+

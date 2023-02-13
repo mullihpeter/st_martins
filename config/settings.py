@@ -50,6 +50,7 @@ LOCAL_APPS = [
 THIRD_PARTY_APPS = [
     'cloudinary',
     'cloudinary_storage',
+
 ]
 
 INSTALLED_APPS = [
@@ -58,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     *LOCAL_APPS,
     *THIRD_PARTY_APPS,
