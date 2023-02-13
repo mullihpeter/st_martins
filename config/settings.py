@@ -35,9 +35,12 @@ db_from_env = dj_database_url.config(conn_max_age=700)
 SECRET_KEY = MY_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
+
+# csrf allowed origins
+CSRF_TRUSTED_ORIGINS = ['https://stmartdeporres.com']
 
 # Application definition
 
