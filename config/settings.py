@@ -40,7 +40,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 # csrf allowed origins
-CSRF_TRUSTED_ORIGINS = ['https://stmartdeporres.com']
+CSRF_TRUSTED_ORIGINS = ['http://stmartdeporres.com']
 
 # Application definition
 
