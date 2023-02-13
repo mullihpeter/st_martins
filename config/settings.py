@@ -10,16 +10,29 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
+
+import dj_database_url
+
+from .keys import SECRET_KEY as MY_KEY
+
 from pathlib import Path
+
+# cloudinary python classes
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Update database configuration with $DATABASE_URL.
+db_from_env = dj_database_url.config(conn_max_age=700)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-f8cjpjnxqe5hk3nx)vcaov9g9pu(3dpa8v1!9sjhc+()9o6vpv'
+SECRET_KEY = MY_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -30,6 +43,13 @@ ALLOWED_HOSTS = ['*']
 
 LOCAL_APPS = [
     'st_martins.core_web.apps.CoreWebConfig',
+    'st_martins.pores_portal.apps.PoresPortalConfig',
+    'st_martins.school_media.apps.SchoolMediaConfig'
+]
+
+THIRD_PARTY_APPS = [
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 INSTALLED_APPS = [
@@ -40,10 +60,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     *LOCAL_APPS,
+    *THIRD_PARTY_APPS,
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -80,6 +102,21 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+DATABASES['default'].update(db_from_env)
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dlcvinuok',
+    'API_KEY': '931524464496612',
+    'API_SECRET': '9I2Lw58oRidfrFlmHQ1Kpcm3Bis'
+}
+default_storage = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.PyMemcacheCache',
+        'LOCATION': '127.0.0.1:11211',
     }
 }
 
@@ -121,9 +158,19 @@ STATICFILES_DIRS = [
     BASE_DIR / "st_martins/static",
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
-AUTH_USER_MODEL = 'core_web.User'
+AUTH_USER_MODEL = 'core_web.CustomUser'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DEFAULT_FROM_EMAIL = "admin@stmartdeporres.com"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# insert comment for LOGGING setting below.
+
+

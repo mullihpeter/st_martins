@@ -37,7 +37,7 @@ ul li {
 
 header {
     position: relative;
-    height: 100vh;
+    height: 90vh;
     overflow: hidden;
 }
 
@@ -46,12 +46,23 @@ header {
 
 nav {
     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 200;
+    transition: top 0.5s ease-in-out;
 }
 
 .nav-color {
     background-color: var(--background-blue);
     opacity: .95;
+}
+
+.scrolled-down{
+  transform:translateY(-100%); transition: all 0.3s ease-in-out;
+}
+.scrolled-up{
+  transform:translateY(0); transition: all 0.3s ease-in-out;
 }
 
 .navbar-position {
@@ -64,14 +75,41 @@ nav {
     font-size: 1em;
     font-weight: 600;
 }
-
 .logo {
-    font-size: 2.3em;
+    font-size: 2.3em !important;
+    font-weight: bold !important;
+    font-family: "Helvetica Neue",
+    margin-right: 1em;
+    align-items: row;
+    justify-content: row;
+    display: align-items;
+
+.jina {
+    font-size: 5.3em !important;
+    margin-right: 1em;
+    align-items: center;
+    display: flex;
+
+
+}
     font-weight: 900;
 }
 
-.logo span {
+.jina span {
     color: #f5a425;
+}
+
+.logo img {
+    width: min(30vw, 100px);
+    max-width: 100%;
+    height: auto !important;
+}
+logo-container {
+    white-space: nowrap;
+
+
+
+
 }
 
 .list-style {
@@ -94,13 +132,13 @@ a.nav-link:hover {
 }
 
 .navbar-nav {
-    transition: all 10s ease;
+    transition: all 5s ease;
 }
 
 .dropdown-style {
-    border-bottom: 1px solid var(--border-bottom);
-    padding: .8rem;
-    font-weight: 500;
+    border-bottom: 1.5px solid var(--border-bottom);
+    padding: .7rem;
+    font-weight: 400;
     color: #fff;
 }
 
@@ -225,18 +263,8 @@ a.nav-link:hover {
   background-color: #e1306c;
   color: #ffffff;
 }
-.wrapper .github:hover,
-.wrapper .github:hover .tooltip,
-.wrapper .github:hover .tooltip::before {
-  background-color: #333333;
-  color: #ffffff;
-}
-.wrapper .youtube:hover,
-.wrapper .youtube:hover .tooltip,
-.wrapper .youtube:hover .tooltip::before {
-  background-color: #de463b;
-  color: #ffffff;
-}
+
+
 
 /****vidéo****/
 
@@ -258,16 +286,6 @@ header video {
     transform: translateX(-50%) translateY(-50%);
 }
 
-header .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #121b2f;
-    opacity: .8;
-    z-index: 1;
-}
 
 
 /********************END header*****************************/
@@ -296,7 +314,7 @@ header .overlay {
 .features-post .content {
     height: 0;
     overflow: hidden;
-    transition: height 2s;
+    transition: height 1.5s;
 }
 
 .features-post .content:hover {
@@ -310,11 +328,11 @@ header .overlay {
 }
 
 .content-show h4 i {
-    margin-right: 8px;
+    margin-right: 4px;
 }
 
 .content p {
-    margin-bottom: .5rem;
+    margin-bottom: 2.5rem;
 }
 
 .content a {
@@ -332,15 +350,27 @@ header .overlay {
     color: #fff;
     height: auto;
     margin: auto;
+    padding-left: -58rem;
+    padding-right: -58rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+
     /* text-align: center; */
     background: url('../images/choosing-bg.jpg') center center / cover;
-    padding-bottom: 5rem;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.9;
+}
+    padding-bottom: 1.5rem;
+
 }
 
 .ligne {
     width: 2px;
     background-color: rgba(250, 250, 250, 0.1);
-    height: 7rem;
+    height: 5rem;
     margin: auto;
     padding: 0;
 }
@@ -349,7 +379,7 @@ header .overlay {
     color: #fff;
     margin: auto;
     text-align: center;
-    border: rgba(250, 250, 250, 0.1) 2px solid;
+    border: rgba(25, 25, 25, 0.1) 5px solid;
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
@@ -361,8 +391,12 @@ header .overlay {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-top: 5rem;
-    margin-bottom: 3rem;
+    margin-top: 0.5rem;
+    margin-bottom: 5rem;
+    border: 1.5px solid #B3B6B7;
+    background-color: #17202A !important;
+    border-radius: 10px;
+
 }
 
 .categorie ul li {
@@ -370,16 +404,22 @@ header .overlay {
     display: flex;
     flex-direction: column;
     text-align: center;
-    font-weight: bold;
+    font-weight: ;
 }
 
 .list-category {
     cursor: pointer;
+    on-home:before {
+        content: " ";
+        display: inline-block;
+        width: 1.5rem;
+        height: 1.5rem;
+        }
 }
 
 .icon {
-    border: #f5a425 solid 2px;
-    padding: 5px;
+    border: #f5a425 solid 3px;
+    padding: 3px;
 }
 
 .whyUs .content {
@@ -422,9 +462,10 @@ a.link:hover {
 
 .timer {
     height: auto;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 1.5rem;
+    padding-bottom: .5rem;
     background: url('../images/background.jpg') center center / cover;
+    opacity: 0.75;
 }
 
 
@@ -684,6 +725,8 @@ a.link:hover {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    border-radius: 3%;
+    border: 1px solid #f5a425;
 }
 
 .bgr {
@@ -691,18 +734,19 @@ a.link:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    background-color: rgba(255, 255, 255, .5);
+    padding: 5px 5px;
+    border-radius: 0 0 6px 6px;
+    background-color: rgba(0, 155, 255, .5);
 }
 
 .bgr p {
     color: black;
-    font-weight: 700;
+    font-weight: 750;
 }
 
 .bgr .run {
     background-color: #f5a425;
-    /* padding: 15px; */
+    padding: 15px;
     width: 3rem;
     height: 3rem;
     color: #fff;
@@ -869,7 +913,7 @@ footer p {
         text-align: center;
     }
     .whuUs .icon {
-        padding: 4px;
+        padding: 1.5px;
         font-size: 10px;
     }
     /***features****/
@@ -880,7 +924,7 @@ footer p {
     .features-post {
         position: initial;
         width: 80%;
-        padding: 30px;
+        padding: 6px;
         padding-bottom: 0;
     }
     .features-content {
@@ -904,9 +948,9 @@ footer p {
     .presentation h4 {
         font-size: 1.7em;
     }
-    /* .video-des {
-        margin-top: 5rem;
-    } */
+    video-des {
+        margin-top: 3rem;
+    }
     /******contact********/
     .form {
         margin-bottom: 2rem;
@@ -919,7 +963,7 @@ footer p {
 @media (max-width: 767px) {
     /******why choose us*********/
     .categorie ul li {
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 600;
         justify-content: space-between;
     }
@@ -928,7 +972,7 @@ footer p {
     }
     .whuUs .icon {
         padding: 4px;
-        font-size: 10px;
+        font-size: 14px;
     }
     /***features****/
     .features {
@@ -968,8 +1012,8 @@ footer p {
     }
     /****presentation****/
     .presentation {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
     .pre-content {
         text-align: center;
@@ -979,7 +1023,7 @@ footer p {
         text-align: center;
     }
     .video-des {
-        margin-top: 5rem;
+        margin-top: 3.5rem;
     }
     /***contact*****/
     .form {
@@ -990,10 +1034,19 @@ footer p {
 @media (max-width: 450px) {
     /***nav***/
     .logo {
-        font-size: 8vw;
+        font-size: 5.5vw !important;
+        font-weight: bold !important;
+        font-family: "Helvetica Neue",
+        text-spacing: 5px !important;
+        white-space: nowrap !important;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
     }
+
+}
     .navbar-dark .navbar-toggler-icon {
-        height: 1.2em;
+        height: 1.0em;
         width: 1.2em;
     }
     /******why choose us*********/
@@ -1007,6 +1060,6 @@ footer p {
     }
     .whuUs .icon {
         padding: 3px;
-        font-size: 8px;
+        font-size: 10px;
     }
 }

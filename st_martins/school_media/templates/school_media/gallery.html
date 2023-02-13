@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load cloudinary %}
+{% load cloudinary_static %}
+
+
+{% block content %}
+<!-- Photo Grid -->
+<div class="row" style="border-radius:3px;">
+  {% for pic in photo %}
+  <div class="column">
+    <h2 style="color:white">{{pic.title}}</h2>
+            <img src="{{pic.image.url}}" alt="{{pic.image.description}}">
+            <h6 style="color:white">{{pic.description}}</h6>
+  </div>
+  {% endfor %}
+  <div class="column">
+    <img src="{% static 'images/betty.jpeg' %}" width="90%" alt="">
+      <img src="https://res.cloudinary.com/dlcvinuok/image/upload/v1673372207/cld-sample-3.jpg" alt="" width="60%">
+</div>
+</div>
+{% include "footer.html" %}
+{% endblock %}
+

@@ -21,4 +21,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('st_martins.core_web.urls')),
+    path('portal/', include('st_martins.pores_portal.urls')),
+    path('school_media/', include('st_martins.school_media.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

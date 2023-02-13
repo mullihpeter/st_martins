@@ -1,5 +1,6 @@
 {% load static %}
-
+{% load cloudinary %}
+{% load cloudinary_static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,24 +18,46 @@
     <link rel="stylesheet" href=" {% static 'owlcarousel/owl.theme.default.min.css' %}" />
     <link rel="stylesheet" href=" {% static 'css/style.css' %}" />
     <link rel="stylesheet" href=" {% static 'css/donation.css' %}" />
+    <link rel="stylesheet" href=" {% static 'css/gallery.css' %}" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- CSS File -->
+
+
+
     <!-- Font Awesome 5.15.1 CSS -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'>
-    <title>{% block title %}St Martins DePores School{% endblock %}</title>
+    <title>{% block title %}St Martins DP School{% endblock %}</title>
 </head>
+
+
 <body>
- {% include "navbar.html" %}
+<div class="logo">
+    <a><img class="logo img" style="width:60%; height:60%; max-width:75px;" src ="{% static 'images/trace.svg' %}" width="60"></a>
+     <a class="navbar-brand jina" href="{% url 'core_web:index' %}">
+         <span>ST MARTINS</span> DP SCHOOL
+     </a>
+
+
+</div>
+{% include "navbar.html" %}
+
     <div data-bs-spy="scroll" data-bs-target="#navbar-scroll-boo" data-bs-offset="0" class="scrollspy-example"
         tabindex="0">
         {% block content %}
 
         {% endblock %}
+
 </div>
- {% include "footer.html" %}
 
     <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'owlcarousel/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/donation.js' %}"></script>
     <script src="{% static 'js/js.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 </html>

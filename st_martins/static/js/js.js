@@ -1,4 +1,3 @@
-//navbar ABOUT US
 
 var linkClick = document.querySelector('.dropdown');
 var linkToShow = document.querySelector('a.nav-link.dropdown-toggle');
@@ -262,5 +261,5 @@ function counter() {
 }
 let countdownS = setInterval(counter, 1000);
 counter();
-
 //lessons
+

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load cloudinary %}
+{% load cloudinary_static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/videos.css' %}"/>
+
+<div class="page-wrapper chiller-theme toggled">
+{% include 'school_media/side_bar.html' %}
+ <main class="page-content">
+    <div class="container-fluid">
+      <h2>Learner's Hub</h2>
+      <hr>
+      <div class="row">
+        <div class="grid-container grid-container--fit">
+          {% for file in video %}
+          <div class="grid-element">
+           <video controls>
+              <source src="{{file.video.url}}" crop="fill" class="card-img-top rounded-0" type="video/mp4">
+            </video>
+          <small>{{file.description}}</small>
+            <small href="" class="btn btn-dark btn-sm">🔥</small>
+            <small href="" class="btn btn-dark btn-sm">👍</small>
+            </div>
+            {% endfor %}
+          </div>
+
+
+        </div>
+      <strong><h3>   More Tutorials</h3></strong>
+      <hr>
+      <div class="row">
+        {% for file in video %}
+
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+          <div class="card rounded-1 p-0 shadow-sm">
+            <a>
+              <video width="320" height="230" controls>
+              <source src="{{file.video.url}}" crop="fill" class="card-img-top rounded-0" type="video/mp4">
+            </video>
+            </a>
+            <div class="card-body text-left">
+              <h6 class="card-title">{{file.title}}</h6>
+
+               <p style="color:white">{{file.description}}</p>
+
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+          <div class="card rounded-0 p-0 shadow-sm">
+            <img src="https://res.cloudinary.com/dlcvinuok/image/upload/v1676039703/media/images/ral4e1axrgxhyppvk4m9.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
+            <div class="card-body text-center">
+              <h6 class="card-title">St Martins school gallery</h6>
+              <a href="" target="_blank" class="btn btn-primary btn-sm">👍</a>
+              <a href="" target="_blank" class="btn btn-success btn-sm">More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+          <div class="card rounded-0 p-0 shadow-sm">
+            <img src="" class="card-img-top rounded-0" alt="Angular pro sidebar">
+            <div class="card-body text-center">
+              <h6 class="card-title">Angular Dashboard</h6>
+              <a href="" target="_blank" class="btn btn-primary btn-sm">🔥</a>
+              <a href="" target="_blank" class="btn btn-success btn-sm">Preview</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+</main>
+
+{% endblock %}
+<script src="{% static 'js/bootstrap-toggle.js' %}"></script>
+
+

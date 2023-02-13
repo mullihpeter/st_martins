@@ -1,17 +1,17 @@
  {% extends 'base.html' %}
- {% block content %}
+ {% load static %}
 
+ {% block content %}
+<link rel="stylesheet" href="{% static 'css/videos.css' %}"/>
+ {% include 'core_web/header.html' %}
  {% include 'core_web/features.html' %}
   {% include 'core_web/about_us.html' %}
  {% include 'core_web/notices.html' %}
  {% include 'core_web/our_mission.html' %}
- {% include "core_web/gallery.html" %}
- <div class="container">
-  <div class="row">
-    {% include "core_web/contact_form.html" %}
+
+
     {% include "core_web/map.html" %}
-  </div>
- </div>
+ {% include "footer.html" %}
 
 
 
